@@ -3,10 +3,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>Myserver thrift server</name>
+	<name>Myserver thrift client</name>
 	<packaging>jar</packaging>
 	<groupId>xgroup</groupId>
-	<artifactId>myserver-thrift-server</artifactId>
+	<artifactId>myserver-thrift-client</artifactId>
 	<version>RELEASE</version>
 
 	<!-- 配置变量 -->
@@ -31,28 +31,16 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>assembly-zip.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>xgroup</groupId>
+			<artifactId>myserver-thrift-lib</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -88,7 +76,7 @@
 			<version>1.2.17 </version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.thrift</groupId>
 			<artifactId>libthrift</artifactId>
